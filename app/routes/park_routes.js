@@ -4,7 +4,7 @@ const express = require('express')
 const passport = require('passport')
 
 // pull in Mongoose model for examples
-const Park = require('../models/parks')
+const Park = require('../models/park')
 
 // this is a collection of methods that help us detect situations when we need
 // to throw a custom error
@@ -78,7 +78,7 @@ router.patch('/parks/:id', requireToken, removeBlanks, (req, res, next) => {
     // ensure the signed in user (req.user.id) is the same as the example's owner (example.owner)
     .then(park => requireOwnership(req, park))
     // updating example object with exampleData
-    .then(park => park.updateOne(req.body.example))
+    .then(park => park.updateOne(req.body.park))
     // if that succeeded, return 204 and no JSON
     .then(() => res.sendStatus(204))
     // if an error occurs, pass it to the handler

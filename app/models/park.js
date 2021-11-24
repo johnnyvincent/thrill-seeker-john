@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const themeParkSchema = new mongoose.Schema({
+const parkSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -15,11 +15,10 @@ const themeParkSchema = new mongoose.Schema({
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    ref: 'User'
   }
 }, {
   timestamps: true
 })
 
-module.exports = mongoose.model('Example', themeParkSchema)
+module.exports = mongoose.model('Park', parkSchema)

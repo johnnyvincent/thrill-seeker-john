@@ -1,5 +1,7 @@
 #!/bin/sh
 
+TOKEN="" sh curl-scripts/parks/index.sh
+
 API="http://localhost:4741"
 URL_PATH="/parks"
 
