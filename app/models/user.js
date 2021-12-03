@@ -10,6 +10,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  // add a relationship where each user has many parks
+  parks: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      // use Park model when populating these references
+      ref: 'Park'
+    }
+  ],
   token: String
 }, {
   timestamps: true,
